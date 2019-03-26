@@ -19,7 +19,7 @@ module.exports = merge(common, {
       new OptimizecssAssetsWebpackPlugin(),
       new TerserPlugin(),
       new HtmlWebpackPlugin({
-        template: './src/template.html',
+        template: './src/index.html',
         minify: {
           removeAttributeQuotes: true,
           collapseWhitespace: true,
