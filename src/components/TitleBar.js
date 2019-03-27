@@ -2,11 +2,11 @@ import React, { Component } from 'react'
 import propTypes, { defaultProps } from '../propTypes/TitleBar'
 
 export default class TitleBar extends Component {
-  render() {
+  render () {
     return (
-      <header>
-        <h1>{this.props.titleText}</h1>
-        <h2>{this.props.description}</h2>
+      <header id='titleBar'>
+        <h1 id='titleBar_title'>{this.props.titleText}</h1>
+        <h2 id='titleBar_description'>{this.props.description}</h2>
       </header>
     )
   }

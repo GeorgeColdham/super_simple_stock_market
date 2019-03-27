@@ -2,7 +2,7 @@ const path = require('path')
 const common = require('./webpack.common')
 const merge = require('webpack-merge')
 
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizecssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin')
@@ -38,9 +38,9 @@ module.exports = merge(common, {
     rules: [{
       test: /\.scss$/,
       use: [
-          MiniCssExtractPlugin.loader,  // 3. Extract into css file
-          "css-loader",                 // 2. translates CSS into CommonJS
-          "sass-loader"                 // 1. compiles Sass to CSS, using Node Sass by default
+        MiniCssExtractPlugin.loader, // 3. Extract into css file
+        'css-loader', // 2. translates CSS into CommonJS
+        'sass-loader' // 1. compiles Sass to CSS, using Node Sass by default
       ]
     }]
   }
