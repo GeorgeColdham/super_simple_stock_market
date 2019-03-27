@@ -1,8 +1,8 @@
 {
-  "name": "react_app_boilerplate",
+  "name": "super_simple_stock_market",
   "version": "1.0.0",
   "private": true,
-  "description": "A boilerplate for a React application, using webpack and npm",
+  "description": "A super_simple_stock_market using React and Redux",
   "main": "index.js",
   "scripts": {
     "build": "npm run test && webpack --config webpack.prod.js",
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/GeorgeColdham/react_app_boilerplate.git"
+    "url": "git+https://github.com/GeorgeColdham/super_simple_stock_market.git"
   },
   "author": "",
   "license": "ISC",
