@@ -13,8 +13,11 @@ export default class TradesTable extends Component {
             <th>Price</th>
             <th>Number of shares</th>
           </tr>
-          {this.props.tableRows.map((row, index) =>
-            <TradeRow {...row} key={`TradeRow${index}`} />)}
+          {this.props.tableRows
+            .sort((a, b) => b.timeStamp - a.timeStamp)
+            .map((row, index) =>
+              <TradeRow {...row} key={`TradeRow${index}`} />
+            )}
         </tbody>
       </table>
     )
