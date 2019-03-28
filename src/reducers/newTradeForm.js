@@ -11,7 +11,8 @@ export const submitForm = (state, values) => Object.assign(
   {
     stockSymbol: values.stockSymbol,
     price: values.price,
-    numberOfShares: values.numberOfShares
+    numberOfShares: values.numberOfShares,
+    timeStamp: values.timeStamp
   }
 )
 

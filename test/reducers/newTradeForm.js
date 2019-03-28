@@ -12,7 +12,8 @@ const populatedState = {
 const values = {
   stockSymbol: 'a',
   price: 1,
-  numberOfShares: 2
+  numberOfShares: 2,
+  timeStamp: 54321
 }
 
 describe('newTradeForm actions', () => {

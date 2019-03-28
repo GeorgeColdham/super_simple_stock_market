@@ -49,10 +49,12 @@ export default class NewTradeForm extends Component {
   }
 
   handleSubmit (event) {
+    const timeStamp = new Date()
     this.props.submitForm({
       stockSymbol: this.state.stockSymbol,
       price: this.state.price,
-      numberOfShares: this.state.numberOfShares
+      numberOfShares: this.state.numberOfShares,
+      timeStamp
     })
     this.state.resetOnSubmit && this.resetForm()
     event.preventDefault()
