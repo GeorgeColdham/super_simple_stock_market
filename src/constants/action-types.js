@@ -1,5 +1,5 @@
-const ADD_NUMBER = 'ADD_NUMBER'
+const SUBMIT_FORM = 'SUBMIT_FORM'
 
 module.exports = {
-  ADD_NUMBER
+  SUBMIT_FORM
 }

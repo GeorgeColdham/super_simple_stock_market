@@ -1,24 +1,26 @@
 import React, { Component } from 'react'
-import TitleBar from '../components/TitleBar'
 import { connect } from 'react-redux'
-import { addNumber } from '../actions/sums'
+import { submitForm } from '../actions/newTradeForm'
+import NewTradeForm from '../components/NewTradeForm'
 
 class App extends Component {
   render () {
-    return <TitleBar {...this.props} />
+    return <NewTradeForm {...this.props} />
   }
 }
 
 const mapStateToProps = state => {
   return {
-    value: state.sums.value
+    stockSymbol: state.newTradeForm.stockSymbol,
+    price: state.newTradeForm.price,
+    numberOfShares: state.newTradeForm.numberOfShares
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    add: number => {
-      dispatch(addNumber(number))
+    submitForm: values => {
+      dispatch(submitForm(values))
     }
   }
 }

@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
-import sums from './sums'
+import newTradeForm from './newTradeForm'
 
 export default combineReducers({
-  sums
+  newTradeForm
 })
