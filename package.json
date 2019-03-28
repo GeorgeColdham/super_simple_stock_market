@@ -37,6 +37,7 @@
     "mocha": "^6.0.2",
     "node-sass": "^4.11.0",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "redux": "^4.0.1",
     "require-hacker": "^3.0.1",
     "sass-loader": "^7.1.0",
     "sinon": "^7.3.0",
@@ -49,7 +50,8 @@
   },
   "dependencies": {
     "react": "^16.8.5",
-    "react-dom": "^16.8.5"
+    "react-dom": "^16.8.5",
+    "react-redux": "^6.0.1"
   },
   "standard": {
     "ignore": [
