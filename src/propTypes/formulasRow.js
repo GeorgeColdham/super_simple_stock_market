@@ -1,6 +1,5 @@
 import {
-  number,
-  string
+  number
 } from 'prop-types'
 
 export const defaultProps = {
