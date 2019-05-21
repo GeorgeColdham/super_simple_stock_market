@@ -18,6 +18,12 @@ export const defaultProps = {
       price: 10,
       numberOfShares: 15,
       timeStamp: 88
+    },
+    {
+      stockSymbol: 'HMM',
+      price: 1,
+      numberOfShares: 100,
+      timeStamp: 71
     }
   ]
 }

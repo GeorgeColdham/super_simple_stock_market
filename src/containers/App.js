@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { submitForm } from '../actions/newTradeForm'
 import NewTradeForm from '../components/NewTradeForm'
 import TradesTable from '../components/TradesTable'
+import FormulasTable from '../components/FormulasTable'
 
 class App extends Component {
   render () {
@@ -10,6 +11,7 @@ class App extends Component {
       <div>
         <NewTradeForm {...this.props} />
         <TradesTable {...this.props} />
+        <FormulasTable {...this.props} />
       </div>
     )
   }
