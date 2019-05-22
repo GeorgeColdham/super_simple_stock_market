@@ -1,30 +1,27 @@
 export const PreferedDividendYield = (price, fixedDividend, parValue) => {
   return (price && fixedDividend && parValue)
     ? (fixedDividend * parValue) / price
-    : 'N/A'
+    : false
 }
 
 export const CommonDividendYield = (price, lastDividend) => {
   return (price && lastDividend)
     ? lastDividend / price
-    : 'N/A'
+    : false
 }
 
 export const PERatio = (price, dividend) => {
   return (price && dividend)
     ? price / dividend
-    : 'N/A'
+    : false
 }
 
-export const GeometricMean = (...args) => {
-  const root = args.length
-  const value = args.reduce((a, b) => {
-    return a + b
-  }, 0)
-
-  return (root > 0)
-    ? Math.pow(value, 1 / root)
-    : 'N/A'
+export const GeometricMean = (productOfPrices, price, numberOfTrades) => {
+  const value = price > 0 ? productOfPrices * price : productOfPrices
+  console.log(productOfPrices)
+  return (numberOfTrades > 0)
+    ? Math.pow(value, 1 / numberOfTrades)
+    : false
 }
 
 export const VolumeWeightedStockPrice = (price = 0, quantity = 0, pqTotal = 0, qTotal = 0) => {

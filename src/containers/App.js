@@ -10,8 +10,8 @@ class App extends Component {
     return (
       <div>
         <NewTradeForm {...this.props} />
-        <TradesTable {...this.props} />
         <FormulasTable {...this.props} />
+        <TradesTable {...this.props} />
       </div>
     )
   }
@@ -19,7 +19,8 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    tradesTableRows: state.tradesTable.tradesTableRows
+    tradesTableRows: state.tradesTable.tradesTableRows,
+    formulasTableRows: state.formulasTable.formulasTableRows
   }
 }
 

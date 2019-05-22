@@ -13,7 +13,7 @@ export default class FormulasTable extends Component {
             <th>Geometric Mean</th>
             <th>Volume Weighted Stock Price</th>
           </tr>
-          {this.props.tableRows
+          {this.props.formulasTableRows
             .map((row, index) =>
               <FormulasRow {...row} key={`FormulasRow${index}`} />
             )}
