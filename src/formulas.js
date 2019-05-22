@@ -37,3 +37,14 @@ export const VolumeWeightedStockPrice = (price = 0, quantity = 0, pqTotal = 0, q
     VWSP: newQTotal === 0 ? 0 : newPQTotal / newQTotal
   }
 }
+
+export const formatDate = timestamp => {
+  const year = timestamp.getUTCFullYear()
+  const month = timestamp.getUTCMonth()
+  const day = timestamp.getUTCDate()
+  const hour = timestamp.getUTCHours()
+  const min = timestamp.getUTCMinutes()
+  const sec = timestamp.getUTCSeconds()
+
+  return `${year}/${month}/${day} ${hour}:${min}:${sec}`
+}

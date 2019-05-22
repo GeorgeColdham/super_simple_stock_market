@@ -13,7 +13,7 @@ export default class TradesTable extends Component {
             <th>Price</th>
             <th>Number of shares</th>
           </tr>
-          {this.props.tableRows
+          {this.props.tradesTableRows && this.props.tradesTableRows
             .sort((a, b) => b.timeStamp - a.timeStamp)
             .map((row, index) =>
               <TradeRow {...row} key={`TradeRow${index}`} />

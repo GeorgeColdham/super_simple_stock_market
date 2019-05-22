@@ -19,10 +19,7 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    stockSymbol: state.newTradeForm.stockSymbol,
-    price: state.newTradeForm.price,
-    numberOfShares: state.newTradeForm.numberOfShares,
-    timeStamp: state.newTradeForm.timeStamp
+    tradesTableRows: state.tradesTable.tradesTableRows
   }
 }
 

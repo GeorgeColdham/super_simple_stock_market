@@ -1,15 +1,20 @@
 import { SUBMIT_FORM } from '../constants/action-types'
-import { defaultProps } from '../propTypes/newTradeForm'
+import { defaultProps } from '../propTypes/tradesTable'
+import { formatDate } from '../formulas'
 
 const initialState = defaultProps
 
 export const submitForm = (state, values) => {
+  const newArr = state.tradesTableRows
+    .concat({
+      stockSymbol: values.stockSymbol,
+      price: values.price,
+      numberOfShares: values.numberOfShares,
+      timeStamp: formatDate(values.timeStamp)
+    })
   return {
     ...state,
-    stockSymbol: values.stockSymbol,
-    price: values.price,
-    numberOfShares: values.numberOfShares,
-    timeStamp: values.timeStamp
+    tradesTableRows: newArr
   }
 }
 
