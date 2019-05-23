@@ -63,6 +63,7 @@ export default class NewTradeForm extends Component {
   render () {
     return (
       <form onSubmit={this.handleSubmit} id='new-trade-form' className='tile'>
+        <h2>New Trade</h2>
         <label>
           {STOCK_SYMBOL_LABEL_TEXT}
           <input
