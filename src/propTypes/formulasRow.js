@@ -1,17 +1,21 @@
 import {
-  number
+  number,
+  string,
+  oneOfType
 } from 'prop-types'
 
 export const defaultProps = {
-  DividendYeild: 'SYM',
-  PERatio: 0,
-  GeometricMean: 0,
+  stockSymbol: 'SYM',
+  dividendYield: 0,
+  peRatio: 0,
+  geometricMean: 0,
   VWSP: 0
 }
 
 export default {
-  DividendYeild: number,
-  PERatio: number,
-  GeometricMean: number,
-  VWSP: number
+  stockSymbol: string,
+  dividendYield: oneOfType([number, string]),
+  peRatio: oneOfType([number, string]),
+  geometricMean: oneOfType([number, string]),
+  VWSP: oneOfType([number, string])
 }

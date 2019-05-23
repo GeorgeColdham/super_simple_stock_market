@@ -1,26 +1,27 @@
 import {
   number,
+  string,
   arrayOf,
-  shape
+  shape,
+  oneOfType
 } from 'prop-types'
 
-export const defaultProps = {
-  formulasTableRows: [],
-  pqTotal: 0,
-  qTotal: 0,
-  numberOfTrades: 0,
-  productOfPrices: 1
-}
+export const defaultProps = {}
 
 export default {
   formulasTableRows: arrayOf(shape({
-    DividendYeild: number,
-    PERatio: number,
-    GeometricMean: number,
-    VWSP: number
-  })),
-  pqTotal: number,
-  qTotal: number,
-  numberOfTrades: number,
-  productOfPrices: number
+    stockSymbol: string,
+    dividendYield: oneOfType([number, string]),
+    peRatio: oneOfType([number, string]),
+    geometricMean: oneOfType([number, string]),
+    VWSP: oneOfType([number, string]),
+    type: string,
+    lastDividend: oneOfType([number, string]),
+    fixedDividend: oneOfType([number, string]),
+    parValue: number,
+    productOfPrices: number,
+    numberOfTrades: number,
+    pqTotal: oneOfType([number, string]),
+    qTotal: oneOfType([number, string])
+  }))
 }

@@ -1,48 +1,73 @@
-import { SUBMIT_FORM } from '../constants/action-types'
+import { SUBMIT_FORM, INIT_LOAD } from '../constants/action-types'
 import { defaultProps } from '../propTypes/formulasTable'
-import { CommonDividendYield, PreferedDividendYield, PERatio, VolumeWeightedStockPrice, GeometricMean } from '../formulas'
-import bevData from '../gbceData.json'
+import { CommonDividendYield, PreferedDividendYield, PERatio, GeometricMean, VolumeWeightedStockPrice } from '../formulas'
+import bevData from '../gbceData'
 
 const initialState = defaultProps
 
+const buildRow = (row, values) => {
+  const newNumberOfTrades = row.numberOfTrades + 1
+  console.log(row.type)
+  const dividendYield = row.type === 'Common'
+    ? CommonDividendYield(values.price, row.lastDividend)
+    : PreferedDividendYield(values.price, row.fixedDividend, row.parValue)
+  const peRatio = PERatio(values.price, row.lastDividend)
+  const geometricMean = GeometricMean(row.productOfPrices, values.price, newNumberOfTrades)
+  const VWSP = VolumeWeightedStockPrice(values.price, values.numberOfShares, row.pqTotal, row.qTotal)
+  const newProductOfPrices = row.productOfPrices * values.price
+
+  return {
+    stockSymbol: row.stockSymbol,
+    dividendYield,
+    peRatio,
+    geometricMean,
+    VWSP: VWSP.VWSP,
+    type: row.type,
+    lastDividend: row.lastDividend,
+    fixedDividend: row.fixedDividend,
+    parValue: row.parValue,
+    productOfPrices: newProductOfPrices,
+    numberOfTrades: newNumberOfTrades,
+    pqTotal: VWSP.newPQTotal,
+    qTotal: VWSP.newQTotal
+  }
+}
+
 export const submitForm = (state, values) => {
-  const stockData = bevData.find(element => {
-    return element.stockSymbol === values.stockSymbol
+  const newArr = state.formulasTableRows.map(row => {
+    return row.stockSymbol === values.stockSymbol
+      ? buildRow(row, values)
+      : row
   })
-
-  const dividendYeild = stockData
-    ? stockData.type === 'Common'
-      ? CommonDividendYield(values.price, stockData.lastDividend)
-      : PreferedDividendYield(values.price, stockData.fixedDividend, stockData.parValue)
-    : stockData.dividendYeild
-
-  const peRatio = stockData
-    ? PERatio(values.price, stockData.lastDividend)
-    : stockData.peRatio
-
-  const vwsp = stockData
-    ? VolumeWeightedStockPrice(values.price, values.numberOfShares, state.pqTotal, state.qTotal)
-    : stockData.VWSP
-
-  const geometricMean = stockData
-    ? GeometricMean(state.productOfPrices, values.price, state.numberOfTrades + 1)
-    : state.GeometricMean
-
-  const newArr = state.formulasTableRows
-    .concat({
-      DividendYeild: dividendYeild,
-      PERatio: peRatio,
-      GeometricMean: geometricMean,
-      VWSP: vwsp.VWSP
-    })
 
   return {
     ...state,
-    formulasTableRows: newArr,
-    pqTotal: vwsp.newPQTotal,
-    qTotal: vwsp.newQTotal,
-    numberOfTrades: state.numberOfTrades + 1,
-    productOfPrices: state.productOfPrices * values.price
+    formulasTableRows: newArr
+  }
+}
+
+export const initLoad = (state, values) => {
+  const initData = bevData.map(bev => {
+    return {
+      stockSymbol: bev.stockSymbol,
+      dividendYield: 'Not Enough Data',
+      peRatio: '-',
+      geometricMean: '-',
+      VWSP: '-',
+      type: bev.type,
+      lastDividend: bev.lastDividend,
+      fixedDividend: bev.fixedDividend,
+      parValue: bev.parValue,
+      productOfPrices: 1,
+      numberOfTrades: 0,
+      pqTotal: 0,
+      qTotal: 0
+    }
+  })
+
+  return {
+    ...state,
+    formulasTableRows: initData
   }
 }
 
@@ -50,6 +75,8 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case SUBMIT_FORM:
       return submitForm(state, action.values)
+    case INIT_LOAD:
+      return initLoad(state, action.values)
     default:
       return state
   }

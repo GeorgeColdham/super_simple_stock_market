@@ -1,6 +1,7 @@
 import {
   number,
-  string
+  string,
+  oneOfType
 } from 'prop-types'
 
 export const defaultProps = {
@@ -12,7 +13,7 @@ export const defaultProps = {
 
 export default {
   stockSymbol: string,
-  price: number,
-  numberOfShares: number,
-  timeStamp: string
+  price: oneOfType([number, string]),
+  numberOfShares: oneOfType([number, string]),
+  timeStamp: oneOfType([number, string])
 }

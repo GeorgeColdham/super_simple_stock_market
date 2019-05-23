@@ -14,7 +14,11 @@ export default class TradesTable extends Component {
             <th>Number of shares</th>
           </tr>
           {this.props.tradesTableRows && this.props.tradesTableRows
-            .sort((a, b) => b.timeStamp - a.timeStamp)
+            .sort((a, b) => {
+              const aDate = new Date(a.timeStamp)
+              const bDate = new Date(b.timeStamp)
+              return bDate - aDate
+            })
             .map((row, index) =>
               <TradeRow {...row} key={`TradeRow${index}`} />
             )}

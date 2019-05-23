@@ -8,18 +8,23 @@ export default class FormulasTable extends Component {
       <table>
         <tbody>
           <tr>
+            <th>Stock Symbol</th>
             <th>Dividend Yield</th>
             <th>P/E Ratio</th>
             <th>Geometric Mean</th>
             <th>Volume Weighted Stock Price</th>
           </tr>
-          {this.props.formulasTableRows
-            .map((row, index) =>
-              <FormulasRow {...row} key={`FormulasRow${index}`} />
-            )}
+          {
+            this.props.formulasTableRows &&
+            this.props.formulasTableRows.map((row, index) => <FormulasRow {...row} key={`FormulasRow${index}`} />)
+          }
         </tbody>
       </table>
     )
+  }
+
+  componentDidMount () {
+    this.props.initLoad()
   }
 }
 

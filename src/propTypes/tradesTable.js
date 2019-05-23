@@ -2,7 +2,8 @@ import {
   number,
   string,
   arrayOf,
-  shape
+  shape,
+  oneOfType
 } from 'prop-types'
 
 export const defaultProps = {
@@ -11,9 +12,9 @@ export const defaultProps = {
 
 export default {
   tradesTableRows: arrayOf(shape({
-    stockSymbol: string,
-    price: number,
-    numberOfShares: number,
-    timeStamp: string
+    stockSymbol: oneOfType([number, string]),
+    price: oneOfType([number, string]),
+    numberOfShares: oneOfType([number, string]),
+    timeStamp: oneOfType([number, string])
   }))
 }

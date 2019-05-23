@@ -18,7 +18,6 @@ export const PERatio = (price, dividend) => {
 
 export const GeometricMean = (productOfPrices, price, numberOfTrades) => {
   const value = price > 0 ? productOfPrices * price : productOfPrices
-  console.log(productOfPrices)
   return (numberOfTrades > 0)
     ? Math.pow(value, 1 / numberOfTrades)
     : false

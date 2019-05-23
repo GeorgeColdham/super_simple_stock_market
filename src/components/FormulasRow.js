@@ -5,9 +5,10 @@ export default class FormulasRow extends Component {
   render () {
     return (
       <tr>
-        <td>{this.props.DividendYeild}</td>
-        <td>{this.props.PERatio}</td>
-        <td>{this.props.GeometricMean}</td>
+        <td>{this.props.stockSymbol}</td>
+        <td>{this.props.dividendYeild}</td>
+        <td>{this.props.peRatio}</td>
+        <td>{this.props.geometricMean}</td>
         <td>{this.props.VWSP}</td>
       </tr>
     )

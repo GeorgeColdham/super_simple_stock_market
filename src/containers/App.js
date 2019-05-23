@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { submitForm } from '../actions/newTradeForm'
+import { initLoad } from '../actions/app'
 import NewTradeForm from '../components/NewTradeForm'
 import TradesTable from '../components/TradesTable'
 import FormulasTable from '../components/FormulasTable'
@@ -28,6 +29,9 @@ const mapDispatchToProps = dispatch => {
   return {
     submitForm: values => {
       dispatch(submitForm(values))
+    },
+    initLoad: values => {
+      dispatch(initLoad(values))
     }
   }
 }
