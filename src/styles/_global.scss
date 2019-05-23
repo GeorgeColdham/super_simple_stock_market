@@ -5,6 +5,11 @@ body {
   font-size: small
 }
 
+h1 {
+  font-size: x-large;
+  text-align: center;
+}
+
 .tile {
   display: block;
   border-radius: 2px;
@@ -17,4 +22,17 @@ body {
   box-shadow: 0 1px 3px $box-shadow-gradient-1, 0 1px 2px $box-shadow-gradient-2;
 }
 
-tr:hover {background-color: $light_theme_tile_bg_secondary;}
+table {
+  text-align: center;
+  border-spacing: 0 3px;
+  overflow: hidden;
+
+  th {
+    border-bottom: solid 1px $light_theme_tile_bg_secondary;
+    table-layout: fixed;
+    margin-bottom: $half-gutter;
+  }
+
+  tr:hover {background-color: $light_theme_tile_bg_secondary;}
+}
+

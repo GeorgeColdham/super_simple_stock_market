@@ -10,6 +10,8 @@ class App extends Component {
   render () {
     return (
       <div>
+        <title>Super Simple Stock Market</title>
+        <h1>Super Simple Stock Market</h1>
         <NewTradeForm {...this.props} />
         <FormulasTable {...this.props} />
         <TradesTable {...this.props} />
