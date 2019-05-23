@@ -1,3 +1,20 @@
 body {
-  background-color: $bg_primary;
+  background-color: $light_theme_bg_primary;
+  color: $light_theme_txt_primary;
+  font-family: 'Overpass Mono', monospace;
+  font-size: small
 }
+
+.tile {
+  display: block;
+  border-radius: 2px;
+  background-color: $light_theme_tile_bg_primary;
+  margin: $gutter;
+  padding: $half-gutter;
+  width: $tile-width;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 1px 3px $box-shadow-gradient-1, 0 1px 2px $box-shadow-gradient-2;
+}
+
+tr:hover {background-color: $light_theme_tile_bg_secondary;}

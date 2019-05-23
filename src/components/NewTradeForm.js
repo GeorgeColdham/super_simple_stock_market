@@ -62,7 +62,7 @@ export default class NewTradeForm extends Component {
 
   render () {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} id='new-trade-form' className='tile'>
         <label>
           {STOCK_SYMBOL_LABEL_TEXT}
           <input
@@ -95,7 +95,7 @@ export default class NewTradeForm extends Component {
           />
           {CHECKBOX_LABEL_TEXT}
         </label>
-        <input type='submit' value='Submit' />
+        <input className='submit button' type='submit' value='Submit' />
       </form>
     )
   }

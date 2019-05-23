@@ -7,7 +7,6 @@ const initialState = defaultProps
 
 const buildRow = (row, values) => {
   const newNumberOfTrades = row.numberOfTrades + 1
-  console.log(row.type)
   const dividendYield = row.type === 'Common'
     ? CommonDividendYield(values.price, row.lastDividend)
     : PreferedDividendYield(values.price, row.fixedDividend, row.parValue)
@@ -50,7 +49,7 @@ export const initLoad = (state, values) => {
   const initData = bevData.map(bev => {
     return {
       stockSymbol: bev.stockSymbol,
-      dividendYield: 'Not Enough Data',
+      dividendYield: '-',
       peRatio: '-',
       geometricMean: '-',
       VWSP: '-',

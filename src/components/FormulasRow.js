@@ -6,7 +6,7 @@ export default class FormulasRow extends Component {
     return (
       <tr>
         <td>{this.props.stockSymbol}</td>
-        <td>{this.props.dividendYeild}</td>
+        <td>{this.props.dividendYield}</td>
         <td>{this.props.peRatio}</td>
         <td>{this.props.geometricMean}</td>
         <td>{this.props.VWSP}</td>

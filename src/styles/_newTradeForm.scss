@@ -1,0 +1,28 @@
+
+#new-trade-form {
+  display: flex;
+  flex-direction: column;
+  color: $light_theme_txt_secondary;
+
+  label {
+    margin-left: auto;
+    margin-right: auto;
+    width: $input-width;
+    display: flex;
+    flex-direction: column;
+    padding: $half-gutter;
+  }
+
+  .submit {
+    margin-left: auto;
+    margin-right: auto;
+    width: $input-width;
+    padding: $half-gutter;
+    padding-bottom: $gutter;
+  }
+  
+  #reset-on-submit-checkbox {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+}
