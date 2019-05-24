@@ -5,7 +5,7 @@ import FormulasRow from './FormulasRow'
 export default class FormulasTable extends Component {
   render () {
     return (
-      <table id='formulas-table' className='tile'>
+      <table>
         <tbody>
           <tr>
             <th>Stock Symbol</th>

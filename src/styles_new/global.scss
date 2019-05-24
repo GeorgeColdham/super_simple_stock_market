@@ -1,0 +1,29 @@
+body {
+    background-color: $bg-primary;
+    font-family: 'Overpass Mono', monospace;
+    font-size: 0.8rem;
+    border: 0;
+    margin: 0;
+}
+
+h1 {
+    font-size: 2rem;
+    padding: 0;
+    border: 0;
+    margin: 0;
+}
+
+h2 {
+    font-size: 1.5rem;
+    padding: 0;
+    border: 0;
+    margin: 0;
+}
+
+.tile {
+    display: block;
+    border-radius: 2px;
+    background-color: $tile-bg;
+    padding: $gutter;
+    box-shadow: 0 1px 3px $box-shadow-gradient-1, 0 1px 2px $box-shadow-gradient-2;
+  }

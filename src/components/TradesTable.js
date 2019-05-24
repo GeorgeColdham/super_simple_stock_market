@@ -5,7 +5,7 @@ import TradeRow from './TradeRow'
 export default class TradesTable extends Component {
   render () {
     return (
-      <table id='trades-table' className='tile'>
+      <table>
         <tbody>
           <tr>
             <th>TimeStamp</th>

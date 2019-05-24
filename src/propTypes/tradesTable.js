@@ -7,7 +7,14 @@ import {
 } from 'prop-types'
 
 export const defaultProps = {
-  tradesTableRows: []
+  tradesTableRows: [
+    {
+      stockSymbol: '-',
+      price: '-',
+      numberOfShares: '-',
+      timeStamp: '-'
+    }
+  ]
 }
 
 export default {

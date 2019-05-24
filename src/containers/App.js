@@ -11,10 +11,12 @@ class App extends Component {
     return (
       <div>
         <title>Super Simple Stock Market</title>
-        <h1>Super Simple Stock Market</h1>
-        <NewTradeForm {...this.props} />
-        <FormulasTable {...this.props} />
-        <TradesTable {...this.props} />
+        <div id='container'>
+          <h1 id='page-header'>Super Simple Stock Market</h1>
+          <div id='new-trade-form' className='tile'><NewTradeForm {...this.props} /></div>
+          <div id='formulas-table' className='tile'><FormulasTable {...this.props} /></div>
+          <div id='trades-table' className='tile'><TradesTable {...this.props} /></div>
+        </div>
       </div>
     )
   }

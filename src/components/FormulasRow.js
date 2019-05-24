@@ -4,7 +4,7 @@ import propTypes, { defaultProps } from '../propTypes/formulasRow'
 export default class FormulasRow extends Component {
   render () {
     return (
-      <tr className='formulas-row'>
+      <tr>
         <td>{this.props.stockSymbol}</td>
         <td>{this.props.dividendYield}</td>
         <td>{this.props.peRatio}</td>

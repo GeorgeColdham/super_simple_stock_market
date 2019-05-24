@@ -1,0 +1,18 @@
+#new-trade-form {
+    grid-area: NTF;
+}
+#formulas-table {
+    grid-area: FT;
+}
+#trades-table {
+    grid-area: TT;
+}
+
+#container {
+    display: grid;
+    grid-template-columns: 1ft 2fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+        "NTF FT FT"
+        "NTF TT TT";
+}
