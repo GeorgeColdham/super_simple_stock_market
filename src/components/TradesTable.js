@@ -11,7 +11,7 @@ export default class TradesTable extends Component {
             <th>TimeStamp</th>
             <th>Stock Symbol</th>
             <th>Price</th>
-            <th>Number of shares</th>
+            <th>Number of Shares</th>
           </tr>
           {this.props.tradesTableRows && this.props.tradesTableRows
             .sort((a, b) => {

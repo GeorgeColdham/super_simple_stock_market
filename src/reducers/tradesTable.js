@@ -5,13 +5,16 @@ import { formatDate } from '../formulas'
 const initialState = defaultProps
 
 export const submitForm = (state, values) => {
-  const newArr = state.tradesTableRows
-    .concat({
-      stockSymbol: values.stockSymbol,
-      price: values.price,
-      numberOfShares: values.numberOfShares,
-      timeStamp: formatDate(values.timeStamp)
-    })
+  const row = {
+    stockSymbol: values.stockSymbol,
+    price: values.price,
+    numberOfShares: values.numberOfShares,
+    timeStamp: formatDate(values.timeStamp)
+  }
+  const newArr = state === defaultProps
+    ? [row]
+    : state.tradesTableRows.concat(row)
+
   return {
     ...state,
     tradesTableRows: newArr

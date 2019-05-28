@@ -23,7 +23,12 @@ export const GeometricMean = (productOfPrices, price, numberOfTrades) => {
     : false
 }
 
-export const VolumeWeightedStockPrice = (price = 0, quantity = 0, pqTotal = 0, qTotal = 0) => {
+export const VolumeWeightedStockPrice = (PRICE = 0, QUANTITY = 0, PQTOTAL = 0, QTOTAL = 0) => {
+  const price = Number(PRICE)
+  const quantity = Number(QUANTITY)
+  const pqTotal = Number(PQTOTAL)
+  const qTotal = Number(QTOTAL)
+
   const newPQTotal = pqTotal + (price * quantity)
   const newQTotal = quantity + qTotal
 
