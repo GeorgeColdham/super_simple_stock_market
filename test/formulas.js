@@ -1,18 +1,25 @@
 import { expect } from 'chai'
-import { PreferedDividendYield, CommonDividendYield, PERatio, GeometricMean, VolumeWeightedStockPrice as VWSP } from '../src/formulas'
+import {
+    PreferedDividendYield,
+    CommonDividendYield,
+    PERatio,
+    GeometricMean,
+    VolumeWeightedStockPrice as VWSP,
+    formatDate
+} from '../src/formulas'
 
-describe('DividendYield', () => {
+describe('PreferedDividendYield', () => {
     it('should not return undefined', () => {
         expect(typeof PreferedDividendYield()).to.not.equal(undefined)
     })
     it('should not return Null', () => {
         expect(typeof PreferedDividendYield()).to.not.equal(null)
     })
-    it('should return "N/A" when not provided a price', () => {
-        expect(PreferedDividendYield()).to.equal('N/A')
+    it('should return False when not provided a price', () => {
+        expect(PreferedDividendYield()).to.equal(false)
     })
-    it('should return "N/A" when only provided a price', () => {
-        expect(PreferedDividendYield(20)).to.equal('N/A')
+    it('should return False when only provided a price', () => {
+        expect(PreferedDividendYield(20)).to.equal(false)
     })
     it('should return the correct value when passed correct parameters', () => {
         expect(PreferedDividendYield(20, 2, 100)).to.equal(10)
@@ -26,11 +33,11 @@ describe('CommonDividendYield', () => {
     it('should not return Null', () => {
         expect(typeof CommonDividendYield()).to.not.equal(null)
     })
-    it('should return "N/A" when not provided a price', () => {
-        expect(CommonDividendYield()).to.equal('N/A')
+    it('should return False when not provided a price', () => {
+        expect(CommonDividendYield()).to.equal(false)
     })
-    it('should return "N/A" when only provided a price', () => {
-        expect(CommonDividendYield(20)).to.equal('N/A')
+    it('should return False when only provided a price', () => {
+        expect(CommonDividendYield(20)).to.equal(false)
     })
     it('should return the correct value when passed correct parameters', () => {
         expect(CommonDividendYield(20, 25)).to.equal(1.25)
@@ -44,11 +51,11 @@ describe('PERatio', () => {
     it('should not return Null', () => {
         expect(typeof PERatio()).to.not.equal(null)
     })
-    it('should return "N/A" when not provided a price', () => {
-        expect(PERatio()).to.equal('N/A')
+    it('should return False when not provided a price', () => {
+        expect(PERatio()).to.equal(false)
     })
-    it('should return "N/A" when only provided a price', () => {
-        expect(PERatio(20)).to.equal('N/A')
+    it('should return False when only provided a price', () => {
+        expect(PERatio(20)).to.equal(false)
     })
     it('should return the correct value when passed correct parameters', () => {
         expect(PERatio(25, 50)).to.equal(0.5)
@@ -56,11 +63,11 @@ describe('PERatio', () => {
 })
 
 describe('GeometricMean', () => {
-    it('should return "N/A" when passed no arguments', () => {
-        expect(GeometricMean()).to.equal('N/A')
+    it('should return False when passed no arguments', () => {
+        expect(GeometricMean()).to.equal(false)
     })
     it('should return the correct value when passed correct parameters', () => {
-        expect(GeometricMean(24,1)).to.equal(5)
+        expect(GeometricMean(20,5,2)).to.equal(10)
     })
 })
 
@@ -95,5 +102,17 @@ describe('VolumeWeightedStockPrice', () => {
     })
     it('should correctly adjust totals when provided them', () => {
         expect(VWSP(3,2,45,13)).to.deep.equal(TotalsObject)
+    })
+})
+
+describe('formatDate', () => {
+    it('should return False if not passed a timestamp', () => {
+        expect(formatDate()).to.equal(false)
+    })
+    it('should return False if passed an invalid timestamp', () => {
+        expect(formatDate(`1234dffsdg342y`)).to.equal(false)
+    })
+    it('should return a formatted date string if passed a timestamp', () => {
+        expect(formatDate(1559030411379)).to.equal('2019/4/28 8:0:11')
     })
 })
