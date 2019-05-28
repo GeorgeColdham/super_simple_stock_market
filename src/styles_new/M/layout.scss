@@ -5,7 +5,7 @@
     padding: $gutter;
     padding-bottom: 1.5 * $gutter;
     box-sizing: border-box;
-    grid-template-columns: minmax(250px, 1fr) 4fr;
+    grid-template-columns: minmax(200px, 1fr) 4fr;
     grid-template-rows: auto auto 1fr;
     grid-template-areas: "PH PH" "NTF FT" "NTF TT";
 }
