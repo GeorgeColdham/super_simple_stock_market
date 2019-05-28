@@ -7,7 +7,7 @@ import {
     VolumeWeightedStockPrice as VWSP,
     formatDate,
     trimNumber
-} from '../src/formulas'
+} from '../src/functions'
 
 describe('PreferedDividendYield', () => {
     it('should not return undefined', () => {

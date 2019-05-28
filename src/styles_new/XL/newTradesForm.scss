@@ -13,6 +13,10 @@
       flex-direction: column;
       padding: $half-gutter;
     }
+
+    input {
+      text-align: center;
+    }
   
     .submit {
       width: $input-width;
@@ -23,5 +27,17 @@
     #reset-on-submit-checkbox {
       flex-direction: row;
       justify-content: flex-start;
+    }
+
+    .error-text {
+      font-size: 0.65rem;
+      text-align: center;
+      margin: 1px;
+      color: $info-error;
+    }
+
+    .err-box {
+      border-color: white;
+      outline: 2px solid $info-error;
     }
   }

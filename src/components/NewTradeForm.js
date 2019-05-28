@@ -6,6 +6,9 @@ import {
   NUMBER_OF_SHARES_LABEL_TEXT,
   CHECKBOX_LABEL_TEXT
 } from '../constants/newTradeForm'
+import { isValidStockSymbol } from '../functions'
+import bevData from '../gbceData'
+import { INVALID_STOCK_SYMBOL } from '../constants/errorText'
 
 export default class NewTradeForm extends Component {
   constructor (props) {
@@ -14,7 +17,12 @@ export default class NewTradeForm extends Component {
       stockSymbol: this.props.stockSymbol,
       price: this.props.price,
       numberOfShares: this.props.numberOfShares,
-      resetOnSubmit: false
+      resetOnSubmit: false,
+      errors: {
+        stockSymbol: false,
+        price: false,
+        quantity: false
+      }
     }
 
     this.handleStockSymbolChange = this.handleStockSymbolChange.bind(this)
@@ -26,7 +34,25 @@ export default class NewTradeForm extends Component {
 
   handleStockSymbolChange (event) {
     const stockSymbol = event.target.value.toUpperCase()
-    this.setState({ stockSymbol })
+    const getErrors = () => {
+      if (stockSymbol.length > 2) {
+        if (!isValidStockSymbol(stockSymbol, bevData)) {
+          return {
+            ...this.state.errors,
+            stockSymbol: INVALID_STOCK_SYMBOL(stockSymbol)
+          }
+        }
+      }
+      return {
+        ...this.state.errors,
+        stockSymbol: false
+      }
+    }
+
+    this.setState({
+      stockSymbol,
+      errors: getErrors()
+    })
   }
 
   handlePriceChange (event) {
@@ -72,8 +98,10 @@ export default class NewTradeForm extends Component {
             value={this.state.stockSymbol}
             onChange={this.handleStockSymbolChange}
             required
+            className={this.state.errors.stockSymbol ? 'err-box' : ''}
           />
         </label>
+        <p className='error-text'>{this.state.errors.stockSymbol || '\u00A0'}</p>
         <label>
           {PRICE_LABEL_TEXT}
           <input
@@ -83,8 +111,10 @@ export default class NewTradeForm extends Component {
             onChange={this.handlePriceChange}
             min='1'
             required
+            className={this.state.errors.price ? 'err-box' : ''}
           />
         </label>
+        <p className='error-text'>{this.state.errors.price || '\u00A0'}</p>
         <label>
           {NUMBER_OF_SHARES_LABEL_TEXT}
           <input
@@ -93,8 +123,10 @@ export default class NewTradeForm extends Component {
             onChange={this.handleNumberOfSharesChange}
             min='1'
             required
+            className={this.state.errors.quantity ? 'err-box' : ''}
           />
         </label>
+        <p className='error-text'>{this.state.errors.quantity || '\u00A0'}</p>
         <label id='reset-on-submit-checkbox'>
           <input type='checkbox'
             value={this.state.resetOnSubmit}
@@ -102,7 +134,7 @@ export default class NewTradeForm extends Component {
           />
           {CHECKBOX_LABEL_TEXT}
         </label>
-        <input className='submit button' type='submit' value='Submit' />
+        <button className='submit' type='submit' value='Submit'>Submit</button>
       </form>
     )
   }

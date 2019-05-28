@@ -17,7 +17,8 @@ configure({ adapter: new Adapter() });
 const shallowNewTradeForm = shallow(<NewTradeForm />)
 const shallowForm = shallowNewTradeForm.find('form')
 const shallowLabels = shallowNewTradeForm.find('label')
-const shallowInputs= shallowNewTradeForm.find('input')
+const shallowInputs = shallowNewTradeForm.find('input')
+const shallowButtons = shallowNewTradeForm.find('button')
 
 describe('<NewTradeForm />', () => {
   it('should exist', () => {
@@ -74,10 +75,19 @@ describe('<NewTradeForm />', () => {
 
   describe('Inputs', () => {
     it('should have an input', () => {
-    expect(shallowInputs.exists()).to.equal(true)
+      expect(shallowInputs.exists()).to.equal(true)
     })
-    it('should have 5 inputs', () => {
-      expect(shallowInputs).to.have.length(5)
+    it('should have 4 inputs', () => {
+      expect(shallowInputs).to.have.length(4)
+    })
+  })
+
+  describe('Button', () => {
+    it('should have a button', () => {
+      expect(shallowButtons.exists()).to.equal(true)
+    })
+    it('should have 1 button', () => {
+      expect(shallowButtons).to.have.length(1)
     })
   })
 

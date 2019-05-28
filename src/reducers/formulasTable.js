@@ -1,6 +1,6 @@
 import { SUBMIT_FORM, INIT_LOAD } from '../constants/action-types'
 import { defaultProps } from '../propTypes/formulasTable'
-import { CommonDividendYield, PreferedDividendYield, PERatio, GeometricMean, VolumeWeightedStockPrice } from '../formulas'
+import { CommonDividendYield, PreferedDividendYield, PERatio, GeometricMean, VolumeWeightedStockPrice } from '../functions'
 import bevData from '../gbceData'
 
 const initialState = defaultProps

@@ -12,7 +12,9 @@ export const CommonDividendYield = (price, lastDividend) => {
 
 export const PERatio = (price, dividend) => {
   return (price && dividend)
-    ? price / dividend
+    ? price / dividend === Infinity
+      ? 'N/A'
+      : price / dividend
     : false
 }
 
@@ -54,7 +56,14 @@ export const formatDate = timestamp => {
 }
 
 export const trimNumber = number => {
-  const isNumber = !isNaN(number)
+  const isNumber = !isNaN(number) && number !== Infinity
   const re = new RegExp('^-?\\d+(?:.\\d{0,' + 4 + '})?')
-  return isNumber ? Number(number.toString().match(re)[0]) : false
+  return isNumber
+    ? Number(number.toString().match(re)[0])
+    : number === 'N/A'
+      ? number
+      : false
 }
+
+export const isValidStockSymbol = (stockSymbol, bevData) =>
+  bevData.filter(stock => stock.stockSymbol === stockSymbol).length > 0

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import propTypes, { defaultProps } from '../propTypes/formulasRow'
-import { trimNumber as trim } from '../formulas'
+import { trimNumber as trim } from '../functions'
 
 export default class FormulasRow extends Component {
   render () {

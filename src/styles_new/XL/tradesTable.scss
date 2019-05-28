@@ -1,10 +1,8 @@
 #trades-table {
+    overflow: auto;
+    overflow-x: hidden;
     
     table {
-    width: 100%;
-    align-content: center;
-    text-align: center;
-
         th {
             width: 25%;
         }

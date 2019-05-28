@@ -1,6 +1,6 @@
 import { SUBMIT_FORM } from '../constants/action-types'
 import { defaultProps } from '../propTypes/tradesTable'
-import { formatDate } from '../formulas'
+import { formatDate } from '../functions'
 
 const initialState = defaultProps
 
