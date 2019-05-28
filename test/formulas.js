@@ -5,7 +5,8 @@ import {
     PERatio,
     GeometricMean,
     VolumeWeightedStockPrice as VWSP,
-    formatDate
+    formatDate,
+    trimNumber
 } from '../src/formulas'
 
 describe('PreferedDividendYield', () => {
@@ -114,5 +115,31 @@ describe('formatDate', () => {
     })
     it('should return a formatted date string if passed a timestamp', () => {
         expect(formatDate(1559030411379)).to.equal('2019/4/28 8:0:11')
+    })
+})
+
+describe('trimNumber', () => {
+    it('should retun False when provided nothing', () => {
+        expect(trimNumber()).to.equal(false)
+    })
+    it('should retun False when not provided a number', () => {
+        expect(trimNumber('Hello')).to.equal(false)
+    })
+    it('should return the same number when given an int', () =>{
+        const myInt = 3
+        expect(trimNumber(myInt)).to.equal(myInt)
+    })
+    it('should return the same number when given a float with less than 4dp', () =>{
+        const myFloat = 3.333
+        expect(trimNumber(myFloat)).to.equal(myFloat)
+    })
+    it('should return the same number when given a float with 4dp', () =>{
+        const myFloat = 3.3333
+        expect(trimNumber(myFloat)).to.equal(myFloat)
+    })
+    it('should return the a trimmed number when given a float with more than 4dp', () =>{
+        const myFloat = 3.3333333333
+        const expectedResult = 3.3333
+        expect(trimNumber(myFloat)).to.equal(expectedResult)
     })
 })

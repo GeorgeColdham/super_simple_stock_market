@@ -52,3 +52,9 @@ export const formatDate = timestamp => {
     return `${year}/${month}/${day} ${hour}:${min}:${sec}`
   } else return false
 }
+
+export const trimNumber = number => {
+  const isNumber = !isNaN(number)
+  const re = new RegExp('^-?\\d+(?:.\\d{0,' + 4 + '})?')
+  return isNumber ? Number(number.toString().match(re)[0]) : false
+}

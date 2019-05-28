@@ -1,15 +1,21 @@
 import React, { Component } from 'react'
 import propTypes, { defaultProps } from '../propTypes/formulasRow'
+import { trimNumber as trim } from '../formulas'
 
 export default class FormulasRow extends Component {
   render () {
+    const DY = this.props.dividendYield
+    const PER = this.props.peRatio
+    const GEO = this.props.geometricMean
+    const VWSP = this.props.VWSP
+
     return (
       <tr>
         <td>{this.props.stockSymbol}</td>
-        <td>{this.props.dividendYield}</td>
-        <td>{this.props.peRatio}</td>
-        <td>{this.props.geometricMean}</td>
-        <td>{this.props.VWSP}</td>
+        <td>{DY === '-' ? DY : trim(DY)}</td>
+        <td>{PER === '-' ? PER : trim(PER)}</td>
+        <td>{GEO === '-' ? GEO : trim(GEO)}</td>
+        <td>{VWSP === '-' ? VWSP : trim(VWSP)}</td>
       </tr>
     )
   }

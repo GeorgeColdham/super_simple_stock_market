@@ -25,7 +25,8 @@ export default class NewTradeForm extends Component {
   }
 
   handleStockSymbolChange (event) {
-    this.setState({ stockSymbol: event.target.value })
+    const stockSymbol = event.target.value.toUpperCase()
+    this.setState({ stockSymbol })
   }
 
   handlePriceChange (event) {
@@ -70,6 +71,7 @@ export default class NewTradeForm extends Component {
             type='text'
             value={this.state.stockSymbol}
             onChange={this.handleStockSymbolChange}
+            required
           />
         </label>
         <label>
@@ -79,6 +81,8 @@ export default class NewTradeForm extends Component {
             step='any'
             value={this.state.price}
             onChange={this.handlePriceChange}
+            min='1'
+            required
           />
         </label>
         <label>
@@ -87,6 +91,8 @@ export default class NewTradeForm extends Component {
             type='number'
             value={this.state.numberOfShares}
             onChange={this.handleNumberOfSharesChange}
+            min='1'
+            required
           />
         </label>
         <label id='reset-on-submit-checkbox'>
