@@ -1,27 +1,16 @@
-// @import "./styles/variables";
-// @import "./styles/colors";
-// @import "./styles/global";
-
-// @import "./styles/newTradeForm";
-// @import "./styles/tradesTable";
-// @import "./styles/formulasTable";
-
-// @import "./styles/typography";
-
-
-@import './styles_new/variables';
-@import './styles_new/colors';
-@import './styles_new/typography';
-@import './styles_new/global';
+@import './styles/variables';
+@import './styles/colors';
+@import './styles/typography';
+@import './styles/global';
 
 @media (min-width: 1250px) {
-    @import './styles_new/XL/index.scss';
+    @import './styles/XL/index.scss';
 }
 
-@media (min-width: 950px) and (max-width: 1249px) {
-    @import './styles_new/L/index.scss';
+@media (min-width: 975px) and (max-width: 1249px) {
+    @import './styles/L/index.scss';
 }
 
 @media (max-width: 974px) {
-    @import './styles_new/Ml/index.scss';
+    @import './styles/M/index.scss';
 }
