@@ -6,7 +6,8 @@ import {
     GeometricMean,
     VolumeWeightedStockPrice as VWSP,
     formatDate,
-    trimNumber
+    trimNumber,
+    isValidStockSymbol
 } from '../src/functions'
 
 describe('PreferedDividendYield', () => {
@@ -141,5 +142,17 @@ describe('trimNumber', () => {
         const myFloat = 3.3333333333
         const expectedResult = 3.3333
         expect(trimNumber(myFloat)).to.equal(expectedResult)
+    })
+})
+
+describe(`isValidStockSymbol`, () => {
+    const testBevData = [{stockSymbol: 'CAT'}]
+    const testValidStockSymbol = 'CAT'
+    const testInvalidStockSymbol = 'DOG'
+    it(`should return true if stock symbols match`, () => {
+        expect(isValidStockSymbol(testValidStockSymbol, testBevData)).to.be.true
+    })
+    it(`should return false if the stock symbols do not match`, () => {
+        expect(isValidStockSymbol(testInvalidStockSymbol, testBevData)).to.be.false
     })
 })
