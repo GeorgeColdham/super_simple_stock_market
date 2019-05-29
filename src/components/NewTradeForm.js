@@ -71,18 +71,34 @@ export default class NewTradeForm extends Component {
     this.setState({
       stockSymbol: defaultProps.stockSymbol,
       price: defaultProps.price,
-      numberOfShares: defaultProps.numberOfShares
+      numberOfShares: defaultProps.numberOfShares,
+      errors: {
+        stockSymbol: false,
+        price: false,
+        quantity: false
+      }
     })
   }
 
   handleSubmit (event) {
-    const timeStamp = new Date()
-    this.props.submitForm({
-      stockSymbol: this.state.stockSymbol,
-      price: this.state.price,
-      numberOfShares: this.state.numberOfShares,
-      timeStamp
-    })
+    if (!isValidStockSymbol(this.state.stockSymbol, bevData)) {
+      const errors = {
+        ...this.state.errors,
+        stockSymbol: INVALID_STOCK_SYMBOL(this.state.stockSymbol)
+      }
+      this.setState({
+        stockSymbol: this.state.stockSymbol,
+        errors
+      })
+    } else {
+      const timeStamp = new Date()
+      this.props.submitForm({
+        stockSymbol: this.state.stockSymbol,
+        price: this.state.price,
+        numberOfShares: this.state.numberOfShares,
+        timeStamp
+      })
+    }
     this.state.resetOnSubmit && this.resetForm()
     event.preventDefault()
   }
