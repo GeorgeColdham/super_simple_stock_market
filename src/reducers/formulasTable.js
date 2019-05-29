@@ -5,7 +5,7 @@ import bevData from '../gbceData'
 
 const initialState = defaultProps
 
-const buildRow = (row, values) => {
+export const buildRow = (row, values) => {
   const newNumberOfTrades = row.numberOfTrades + 1
   const dividendYield = row.type === 'Common'
     ? CommonDividendYield(values.price, row.lastDividend)
