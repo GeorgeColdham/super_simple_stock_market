@@ -28,6 +28,9 @@ module.exports = merge(common, {
       })
     ]
   },
+  performance: {
+    hints: 'error'
+  },
   plugins: [
     new MiniCssExtractPlugin({
       filename: '[name].[contentHash].css'
